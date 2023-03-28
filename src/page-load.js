@@ -3,28 +3,43 @@ import Overcooked from './overcooked.jpeg';
 
 function componentContent() {
   const content = document.createElement('div');
-
-  content.innerHTML = 'Hello webpack!';
   content.setAttribute('id', 'content');
 
   return content;
 }
 
+function componentHeader() {
+  const header = document.createElement('div');
+  header.classList.add('header');
+
+  return header;
+}
+
+function componentName() {
+  const name = document.createElement('div');
+  name.classList.add('restaurant-name');
+  name.textContent = 'Restaurant Name';
+
+  return name;
+}
+
 function componentTabContainer() {
   const tabContainer = document.createElement('div');
+  tabContainer.classList.add('tab-container');
 
   return tabContainer;
 }
 
 function componentTabContentContainer() {
   const tabContentContainer = document.createElement('div');
+  tabContentContainer.classList.add('tab-content-container');
 
   return tabContentContainer;
 }
 
+
 function componentHeadline() {
   const headline = document.createElement('h1');
-
   headline.textContent = 'My Restaurant';
 
   return headline;
@@ -39,6 +54,7 @@ function componentCopy() {
 
 function componentFooter() {
   const footer = document.createElement('div');
+  footer.textContent = 'footer';
 
   return footer;
 }
@@ -48,21 +64,27 @@ function componentImage() {
   // mainImage.src = Overcooked;
   const mainImage = new Image();
   mainImage.src = Overcooked;
+  mainImage.classList.add('main-image');
 
   return mainImage;
 }
 
 export const tabContainer = componentTabContainer();
 export const tabContentContainer = componentTabContentContainer();
+export const name = componentName();
 
 export function init() {
   const content = componentContent();
+  const header = componentHeader();
+
   document.body.appendChild(content);
-  content.appendChild(tabContainer);
+  content.appendChild(header);
+  header.appendChild(componentName());
+  header.appendChild(tabContainer);
   content.appendChild(tabContentContainer);
-  content.appendChild(componentHeadline());
-  content.appendChild(componentCopy());
-  content.appendChild(componentImage());
+  tabContentContainer.appendChild(componentImage());
+  tabContentContainer.appendChild(componentHeadline());
+  tabContentContainer.appendChild(componentCopy());
   content.appendChild(componentFooter());
 }
 
