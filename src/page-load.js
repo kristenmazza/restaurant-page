@@ -41,6 +41,7 @@ function componentTabContentContainer() {
 function componentHeadline() {
   const headline = document.createElement('h1');
   headline.textContent = 'Welcome to Overcooked Restaurant!';
+  headline.classList.add('headline');
 
   return headline;
 }
@@ -61,9 +62,65 @@ function componentCopy() {
 
 function componentFooter() {
   const footer = document.createElement('div');
-  footer.textContent = 'footer';
+  footer.classList.add('footer');
 
   return footer;
+}
+
+function componentFooterLocation() {
+  const footerLocation = document.createElement('div');
+   footerLocation.textContent = 'LOCATION';
+   footerLocation.classList.add('component-location');
+
+   return footerLocation;
+}
+
+function componentFooterLocationText() {
+  const footerLocationText = document.createElement('div');
+  footerLocationText.textContent = `123 Burnt Boulevard,\nKitchen Kingdom`;
+  footerLocationText.classList.add('pre', 'footer-text');
+
+  return footerLocationText;
+}
+
+function componentFooterHours() {
+  const footerHours = document.createElement('div');
+  footerHours.textContent = 'HOURS';
+  footerHours.classList.add('component-hours');
+
+  return footerHours;
+}
+
+function componentFooterHoursText() {
+  const footerContactText = document.createElement('div');
+  footerContactText.textContent = `TUESDAY - SUNDAY: 11am - 10pm\nMONDAY: Closed (Time to chop more onions!)`;
+  footerContactText.classList.add('pre', 'footer-text');
+
+  return footerContactText;
+}
+
+function componentFooterContact() {
+  const footerContact = document.createElement('div');
+  footerContact.textContent = 'CONTACT';
+  footerContact.classList.add('component-contact');
+
+  return footerContact;
+}
+
+function componentFooterContactText() {
+  const footerContactText = document.createElement('div');
+  footerContactText.textContent = `PHONE: 555-5555-FOOD\nEMAIL: info@restaurant.com`;
+  footerContactText.classList.add('pre', 'footer-text');
+
+  return footerContactText;
+}
+
+function componentDivider() {
+  const divider = document.createElement('div');
+  divider.textContent = '—';
+  divider.classList.add('divider');
+
+  return divider;
 }
 
 function componentImage() {
@@ -86,6 +143,10 @@ export function init() {
   const content = componentContent();
   const header = componentHeader();
   const copyContainer = componentCopyContainer();
+  const footer = componentFooter();
+  const footerLocation = componentFooterLocation();
+  const footerHours = componentFooterHours();
+  const footerContact = componentFooterContact();
 
   document.body.appendChild(content);
   content.appendChild(header);
@@ -96,6 +157,15 @@ export function init() {
   tabContentContainer.appendChild(copyContainer);
   copyContainer.appendChild(componentHeadline());
   copyContainer.appendChild(componentCopy());
-  content.appendChild(componentFooter());
+  content.appendChild(footer);
+  footer.appendChild(footerLocation);
+  footer.appendChild(footerHours);
+  footer.appendChild(footerContact);
+  footerLocation.appendChild(componentDivider());
+  footerLocation.appendChild(componentFooterLocationText());
+  footerHours.appendChild(componentDivider());
+  footerHours.appendChild(componentFooterHoursText())
+  footerContact.appendChild(componentDivider());
+  footerContact.appendChild(componentFooterContactText());
 }
 
