@@ -1,4 +1,4 @@
-import { contactBtn } from './contact';
+import { componentContactContent, contactBtn } from './contact';
 import { componentHomeContent, homeBtn} from './home';
 import { componentMenuContent, menuBtn } from './menu';
 import { tabContainer, init, tabContentContainer } from './page-load';
@@ -18,14 +18,11 @@ homeBtn.addEventListener('click', () => {
 
 menuBtn.addEventListener('click', () => {
     tabContentContainer.replaceChildren(...componentMenuContent());
-    // TODO: append menu page
 });
 
 contactBtn.addEventListener('click', () => {
-    tabContentContainer.replaceChildren();
-    // TODO: append contact page
+    tabContentContainer.replaceChildren(...componentContactContent());
 });
-
 
 tabContentContainer.replaceChildren(...componentHomeContent());
 
