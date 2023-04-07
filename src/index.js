@@ -1,22 +1,31 @@
-import { tabContainer, init } from './page-load';
+import { contactBtn } from './contact';
+import { componentHomeContent, homeBtn} from './home';
+import { menuBtn } from './menu';
+import { tabContainer, init, tabContentContainer } from './page-load';
 
 init();
 
-const home = document.createElement('button');
-home.textContent = 'HOME';
-tabContainer.appendChild(home);
-home.classList.add('button');
+tabContainer.appendChild(homeBtn);
+tabContainer.appendChild(menuBtn);
+tabContainer.appendChild(contactBtn);
 
-const menu = document.createElement('button');
-menu.textContent = 'MENU';
-tabContainer.appendChild(menu);
-menu.classList.add('button');
+homeBtn.addEventListener('click', () => {
+    // Spread operator adds image and copy as children to tabContentContainer.
+    // Spread operator allows you to add a dynamic number of parameters based on the length of the
+    // returned array
+    tabContentContainer.replaceChildren(...componentHomeContent());
+});
 
-const contact = document.createElement('button');
-contact.textContent = 'CONTACT';
-tabContainer.appendChild(contact);
-contact.classList.add('button');
+menuBtn.addEventListener('click', () => {
+    tabContentContainer.replaceChildren();
+    // TODO: append menu page
+});
+
+contactBtn.addEventListener('click', () => {
+    tabContentContainer.replaceChildren();
+    // TODO: append contact page
+});
 
 
-
+tabContentContainer.replaceChildren(...componentHomeContent());
 
