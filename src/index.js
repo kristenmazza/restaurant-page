@@ -1,6 +1,6 @@
 import { contactBtn } from './contact';
 import { componentHomeContent, homeBtn} from './home';
-import { menuBtn } from './menu';
+import { componentMenuContent, menuBtn } from './menu';
 import { tabContainer, init, tabContentContainer } from './page-load';
 
 init();
@@ -17,7 +17,7 @@ homeBtn.addEventListener('click', () => {
 });
 
 menuBtn.addEventListener('click', () => {
-    tabContentContainer.replaceChildren();
+    tabContentContainer.replaceChildren(...componentMenuContent());
     // TODO: append menu page
 });
 

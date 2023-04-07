@@ -34,10 +34,6 @@ function componentHeadline() {
 }
 
 function componentImage() {
-    // const mainImage = document.createElement('div');
-    // mainImage.style.backgroundImage = `url(${Overcooked})`;
-    // mainImage.classList.add('main-image');
-
     const mainImage = new Image();
     mainImage.src = Overcooked;
     mainImage.classList.add('main-image');
