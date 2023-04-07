@@ -25,14 +25,16 @@ html, body {
   flex: 0;
   max-width: 300px;
   height: auto;
+  padding: 0px 20px;
+
 }
 
 .tab-container {
   display: flex;
   justify-content: end;
-  padding: 20px;
+  padding: 20px 30px;
   flex: 1;
-  gap: 20px;
+  gap: 50px;
 }
 
 .tab-content-container {
@@ -41,7 +43,9 @@ html, body {
   align-items: center;
   flex: 1 0 auto;
   max-width: 100%;
-  padding-bottom: 20px;
+  padding-bottom: 30px;
+  color: rgb(60, 60, 60);
+
   /* background-color: rgb(197 216 211); */
 }
 
@@ -115,4 +119,45 @@ html, body {
   font-weight: bold;
   font-size: 1rem;
   color: rgb(197 216 211);
+}
+
+.button {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+.button {
+  display: inline-block;
+  position: relative;
+  color: rgb(60 60 60);
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: 0.05rem;
+}
+
+.button::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 3px;
+  bottom: -10px;
+  left: 0;
+  background-color: rgb(173 65 54);
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.button:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.button:hover {
+  color: rgb(173 65 54);
 }
