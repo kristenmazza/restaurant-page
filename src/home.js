@@ -27,7 +27,7 @@ function componentCopy() {
 
 function componentHeadline() {
     const headline = document.createElement('h1');
-    headline.textContent = 'Welcome to Overcooked Restaurant!';
+    headline.textContent = 'Welcome to Overcooked Restaurant!!';
     headline.classList.add('headline');
 
     return headline;
